@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+     <title>Map Search</title>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+
+     <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+
+     <script>
+     function GetMap(){
+         //Instantiate a map object
+		var map = new atlas.Map("myMap", {
+			//Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+			authOptions: {
+			    authType: 'subscriptionKey',
+			    subscriptionKey: '<Sample API Key>'
+			}
+			});
+
+		//Wait until the map resources are ready.
+		map.events.add('ready', function() {
+
+			//Create a data source and add it to the map.
+			datasource = new atlas.source.DataSource();
+			map.sources.add(datasource);
+
+			//Add a layer for rendering point data.
+			var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
+			    iconOptions: {
+			        image: 'pin-round-darkblue',
+			        anchor: 'center',
+			        allowOverlap: true
+			    },
+			    textOptions: {
+			        anchor: "center"
+			    }
+			});
+
+			map.layers.add(resultLayer);
+
+			// Use SubscriptionKeyCredential with a subscription key
+			var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
+			// Use subscriptionKeyCredential to create a pipeline
+			var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential);
+			// Construct the SearchURL object
+			var searchURL = new atlas.service.SearchURL(pipeline);
+
+			var query =  'gasoline-station';
+			var radius = 3500;
+			var lat = 44.4440446;
+			var lon = 26.1348271;
+			//44.4440446,26.1348271,14
+
+			searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+				limit: 10,
+				lat: lat,
+				lon: lon,
+				radius: radius
+			}).then((results) => {
+
+				// Extract GeoJSON feature collection from the response and add it to the datasource
+				var data = results.geojson.getFeatures();
+				datasource.add(data);
+				
+				// testing 
+				var sample = {
+					"type": "Feature",
+					"geometry": {
+					    "type": "Point",
+					    "coordinates": [-122.126986, 47.639754]
+					},
+					"properties": {
+					    "subType": "Circle",
+					    "radius": 1000
+					}
+				}
+				datasource.add(sample);
+
+				// end of testing
+
+				// set camera to bounds to show the results
+				map.setCamera({
+				    bounds: data.bbox,
+				    zoom: 10
+				});
+			});
+
+			//Create a popup but leave it closed so we can update it and display it later.
+			popup = new atlas.Popup();
+
+			//Add a mouse over event to the result layer and display a popup when this event fires.
+			map.events.add('mouseover', resultLayer, showPopup);
+
+
+		});
+
+		function showPopup(e) {
+			//Get the properties and coordinates of the first shape that the event occured on.
+
+			var p = e.shapes[0].getProperties();
+			var position = e.shapes[0].getCoordinates();
+
+			//Create HTML from properties of the selected result.
+			var html = ['<div style="padding:5px;"><div><b>', p.poi.name,
+			    '</b></div><div>', p.address.freeformAddress,
+			    '</div><div>', position[1], ', ', position[0], '</div></div>'];
+
+			//Update the content and position of the popup.
+			popup.setPopupOptions({
+			    content: html.join(''),
+			    position: position
+			});
+
+			//Open the popup.
+			popup.open(map);
+		}
+    }
+     </script>
+
+     <style>
+         html,
+         body {
+             width: 100%;
+             height: 100%;
+             padding: 0;
+             margin: 0;
+         }
+
+         #myMap {
+             width: 100%;
+             height: 100%;
+             position: absolute;
+         }
+
+         #container {
+         	width: 100%;
+            height: 100%;
+         }
+     </style>
+ </head>
+ <body onload="GetMap()">
+
+ 	<div id="container">
+ 		<h3 style="position:absolute; float:right; z-index: 2; padding: 10px;
+ 		background: white; border-radius: 15px; margin: 20px;
+ 		box-shadow: 0px 0px 9px rgb(50, 50, 50);">Trash zones</h3>
+    	<div id="myMap"></div>
+    	
+ 	</div>
+ </body>
+ </html>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
