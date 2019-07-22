@@ -1,0 +1,6 @@
+https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.iconoptions?view=azure-maps-typescript-latest
+
+https://docs.microsoft.com/en-us/azure/azure-maps/tutorial-geofence
+
+https://atlas.microsoft.com/search/poi/json?api-version=1&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+
