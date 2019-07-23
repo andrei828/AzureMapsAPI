@@ -14,12 +14,60 @@
 	<!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
 	<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
 	<script src="script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
  </head>
 
  <body onload="GetMap()">
+
+ 	<div class="community_tab">
+		<center>
+			<div><span style="font-size: 150%;">Become part of a community<span></div>
+			<div>
+				<div class="row" style="padding-top: 5%">
+					<div class="col-sm-4" style="">
+						<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; ">
+						<span>Sampling</span>
+					</div>
+					<div class="col-sm-4">
+						<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; ">
+						<span>Sampling</span>
+					</div>
+					<div class="col-sm-4">
+						<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+					</div>
+					</div>
+					<div class="row" style="padding-top: 5%">
+						<div class="col-sm-4">
+							<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+						</div>
+						<div class="col-sm-4">
+							<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+						</div>
+						<div class="col-sm-4">
+							<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+						</div>
+					</div>
+					<div class="row" style="padding-top: 5%">
+						<div class="col-sm-4">
+							<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+						</div>
+						<div class="col-sm-4">
+							<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+						</div>
+						<div class="col-sm-4">
+							<img src="profilephoto.jpg" style="max-width: 80px; border-radius: 35px; "><span>Sampling</span>
+						</div>
+					</div>
+			</div>
+		</center>
+ 	</div>
  	<div class="top_bar">
  		<div class="dropdown">
  			<img src="dropdown.png" onclick="dropdownPressed()" style="position: relative; max-width: 40px; 
@@ -31,7 +79,7 @@
  				<div style="font-size: 15px;">1500 points</div>
 			</div>
 			<div class="cont2" style="display: inline-block;">
-				<img src="profilephoto.jpg" style="max-width: 40px; border-radius: 15px;"  />
+				<img src="profilephoto.jpg" style="margin-top: -50%; max-width: 40px; border-radius: 15px; opacity: 1"  />
 			</div>
  		</div>
 
@@ -50,8 +98,7 @@
 		Help	
 	</div>
  	<div class="container">
-		
- 		
+	
  		<div class="test">
  			<center>
  			<p> <b>Upload an image to get points:</b></p>
