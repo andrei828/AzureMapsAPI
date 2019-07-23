@@ -26,10 +26,9 @@ html, body {
     background-repeat: no-repeat;
 }
 
-.container {
+.container_1 {
  	width: 100%;
     height: 100%;
-    left:-5%;
  }
 
 .dropdown {
