@@ -27,6 +27,9 @@
  <body onload="GetMap()">
 
  	<div class="community_tab">
+ 		<div class="close">
+ 			<span onclick="closeCommunityTab()">X</span>
+ 		</div>
 		<center>
 			<div><span style="font-size: 150%;">Become part of a community<span></div>
 			<div>
@@ -70,8 +73,8 @@
  	</div>
  	<div class="top_bar">
  		<div class="dropdown">
- 			<img src="dropdown.png" onclick="dropdownPressed()" style="position: relative; max-width: 40px; 
- 			margin-left: 400%; bottom: -8px; cursor: pointer;"/>
+ 			<img src="dropdown.png" onclick="dropdownPressed()" id="dropdownicon" style="position: relative; max-width: 40px; 
+ 			margin-left: 400%; bottom: 0px; cursor: pointer;"/>
  		</div>
  		<div class="login">
  			<div class="cont1" style="display: inline-block;">
@@ -87,7 +90,7 @@
  	</div>
 
  	<div class="menu1">
-		Comunity
+		<span onclick="showCommunityTab()">Comunity</span>
 	</div>
 
 	<div class="menu2">
@@ -109,9 +112,6 @@
  			<input id='fileid' type='file' style="display: none"/>
  		</div>
 
- 		<!--<div class="login">
- 			
- 		</div>-->
     	<div id="myMap"></div>
     	
  	</div>

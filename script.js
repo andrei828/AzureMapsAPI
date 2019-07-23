@@ -116,7 +116,9 @@ function dropdownPressed() {
 	var menu1 = document.getElementsByClassName("menu1")[0];
 	var menu2 = document.getElementsByClassName("menu2")[0];
 	var menu3 = document.getElementsByClassName("menu3")[0];
+	var dropdownicon = document.getElementById("dropdownicon");
 
+	
 	menu1.addEventListener("animationend", function() {
 		if (toogle)
 			menu1.style.display = "none";
@@ -139,22 +141,33 @@ function dropdownPressed() {
 	});
 
 	if (toogle) {	
-		menu1.style.animationName = "dropdown";
-		menu2.style.animationName = "dropdown";
-		menu3.style.animationName = "dropdown";
+		dropdownicon.style.transform = "rotate(180deg)";
+		menu1.style.animationName = "dropdown1";
+		menu2.style.animationName = "dropdown2";
+		menu3.style.animationName = "dropdown3";
 		menu1.style.display = "block";
 		menu2.style.display = "block";
 		menu3.style.display = "block";
 		toogle = false;
 	} else {
-		menu1.style.animationName = "dropup";
-		menu2.style.animationName = "dropup";
-		menu3.style.animationName = "dropup";
+		dropdownicon.style.transform = "rotate(0deg)";
+		menu1.style.animationName = "dropup1";
+		menu2.style.animationName = "dropup2";
+		menu3.style.animationName = "dropup3";
 		toogle = true;
 	}
+
 }
 
+function showCommunityTab() {
+	var communityTab = document.getElementsByClassName("community_tab")[0];
+	communityTab.style.display = "block";
+}
 
+function closeCommunityTab() {
+	var communityTab = document.getElementsByClassName("community_tab")[0];
+	communityTab.style.display = "none";
+}
 
 
 
