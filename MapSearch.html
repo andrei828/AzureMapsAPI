@@ -27,9 +27,8 @@
  <body onload="GetMap()">
 
  	<div class="community_tab">
- 		<div class="close">
- 			<span onclick="closeCommunityTab()">X</span>
- 		</div>
+
+ 		<div class="close"><span onclick="closeCommunityTab()">X</span></div>
 		<center>
 			<div><span style="font-size: 150%;">Become part of a community<span></div>
 			<div>
@@ -70,7 +69,43 @@
 					</div>
 			</div>
 		</center>
- 	</div>
+	</div>
+	<div class="uploadinfo_tab">
+		<div class="close">
+ 			<span onclick="closeUploadInfoTab()">X</span>
+ 		</div>
+		<center>
+			<div><span style="font-size: 150%;"><b>Congratulations! Uploaded succesfully!</b><span></div>
+			<div><img src="checked.png" style="max-width: 70px; margin: 5%;"/></div>
+			<div><span id="Points">+100 points</span></div>
+		</center>
+	</div>
+
+	<div class="addevent_tab">
+		<div class="close">
+ 			<span onclick="closeUploadInfoTab()">X</span>
+ 		</div>
+ 		<center>
+ 			<div><span style="font-size: 250%;">New Challenge</span></div><br />
+ 			<div class="addeventbox">
+ 				<div style="margin-bottom: 3%; font-size: 130%;"><span>Location</span></div>
+ 				<div><span class="addevent_text">Add a location</span></div>
+ 			</div>
+ 			<div class="addeventbox"><br /><br />
+ 				<div style="margin-bottom: 3%; font-size: 130%;"><span>Time limit</span></div>
+ 				<div><input class="form-control" id="focusedInput" type="text" style="max-width: 200px; border-radius: 15px; margin-top: -2%;"></div>
+ 			</div>
+ 			<div class="addeventbox"><br /><br />
+ 				<div style="margin-bottom: 3%; font-size: 130%;"><span>Image</span></div>
+ 				<div><span class="addevent_text">Add an image</span></div>
+ 			</div>
+ 			<div class="addeventbox"><br /><br />
+ 				<div style="margin-bottom: 3%; font-size: 130%;"><span>Disaster level</span></div>
+ 				<div><input class="form-control" id="focusedInput" type="text" style="max-width: 200px; border-radius: 15px; margin-top: -2%;"></div>
+ 			</div><br /><br />
+ 			<span class="submit_event">Submit</span>
+ 		</center>
+	</div>
  	<div class="top_bar">
  		<div class="dropdown">
  			<img src="dropdown.png" onclick="dropdownPressed()" id="dropdownicon" style="position: relative; max-width: 40px; 
@@ -88,7 +123,6 @@
 
  		<center><span>Trash map</span></center>
  	</div>
-
  	<div class="menu1">
 		<span onclick="showCommunityTab()">Comunity</span>
 	</div>
@@ -101,15 +135,19 @@
 		Help	
 	</div>
  	<div class="container_1">
-	<div id="myMap"></div>
+		<div id="myMap"></div>
  		<div class="test">
  			<center>
  			<p> <b>Upload an image to get points:</b></p>
  			<form>
 				<button id="buttonid"style="cursor: pointer; padding:10px; padding-left:15px; padding-right:15px; color:white; background-color: #ff540a; border-radius: 15px;">Submit image</button>
-				</center>
+				
+				<input id='fileid' type='file' style="display: none"/>
  			</form>
- 			<input id='fileid' type='file' style="display: none"/>
+ 			</center>
+ 		</div>
+ 		<div class="plusdiv">
+ 			<img src="test.png" onclick="AddEvent()" id="plusphoto"/>
  		</div>
  	</div>
  </body>

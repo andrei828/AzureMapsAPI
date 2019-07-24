@@ -160,17 +160,20 @@ function dropdownPressed() {
 }
 
 function showCommunityTab() {
-	var communityTab = document.getElementsByClassName("community_tab")[0];
-	communityTab.style.display = "block";
+	document.getElementsByClassName("community_tab")[0].style.display = "block";
 }
 
 function closeCommunityTab() {
-	var communityTab = document.getElementsByClassName("community_tab")[0];
-	communityTab.style.display = "none";
+	document.getElementsByClassName("community_tab")[0].style.display = "none";
 }
 
+function closeUploadInfoTab() {
+	document.getElementsByClassName("addevent_tab")[0].style.display = "none";
+}
 
-
+function AddEvent() {
+	document.getElementsByClassName("addevent_tab")[0].style.display = "block";
+}
 
 
 

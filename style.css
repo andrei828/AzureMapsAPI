@@ -12,6 +12,11 @@ html, body {
  position: absolute;
 }
 
+#Points {
+    font-size: 250%;
+    color: #ff540a;
+}
+
 .top_bar {
     position:fixed;
     width: 100%;
@@ -21,7 +26,7 @@ html, body {
     font-size: 35px;
     box-shadow: 0px 0px 10px rgb(50, 50, 50);
     z-index: 4;
-    opacity: 0.75;
+    opacity: 0.9;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -33,7 +38,6 @@ html, body {
 
 .dropdown {
     float: left;
-    
 }
 
 .login {
@@ -58,9 +62,37 @@ html, body {
     border-radius: 15px;
 }
 
+.uploadinfo_tab {
+    display: none;
+    z-index: 10;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    margin-left: 0;
+    margin-right: 0;
+    top: 30%;
+    background: white;
+    padding: 3%;
+    box-shadow: 0px 0px 10px rgb(50, 50, 50);
+    border-radius: 15px;
+}
+
+.addevent_tab {
+    z-index: 10;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    margin-left: 0;
+    margin-right: 0;
+    top: 25%;
+    background: white;
+    padding: 3%;
+    box-shadow: 0px 0px 10px rgb(50, 50, 50);
+    border-radius: 15px;
+}
+
 @keyframes dropdown1 {
    0% {
-        
         transform: translateY(-300px);
         opacity: 0;
     }
@@ -72,7 +104,6 @@ html, body {
 
 @keyframes dropdown2 {
    0% {
-        
         transform: translateY(-700px);
         opacity: 0;
     }
@@ -176,11 +207,63 @@ html, body {
     animation: dropdown 0.9s;
 }
 
+.plusdiv {
+    position: fixed;
+    bottom: 5%;
+    z-index: 3;
+    right: 4%;
+    opacity: 0.9;
+    padding: 30px;
+    transform: translateY(2px);
+    -webkit-animation: fadeInFromNone 0.3s ease-out;
+    -moz-animation: fadeOutFromNone 0.3s ease-out;
+    -o-animation: fadeOutFromNone 0.3s ease-out;
+    animation: fadeOutFromNone 0.3s ease-out;
+}
+
+#plusphoto {
+    max-width: 80px;
+}
+
+#plusphoto:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+
+}
+
+.addevent_box {
+    margin-top: 75%;
+    padding: 3%;
+}
+
+.addevent_text {
+    color: white;
+    font-size: 150%;
+    background-color: #ff540a;
+    border-radius: 30px;
+    opacity: 0.9;
+    padding: 1%;    
+    padding-left: 5%;
+    padding-right: 5%;
+    top: 105%;
+}
+
+.submit_event {
+    color: white;
+    font-size: 200%;
+    box-shadow: 0px 0px 9px rgb(50, 50, 50);
+    background-color: #ff540a;
+    border-radius: 30px;
+    opacity: 0.9;
+    padding: 3%;    
+    top: 105%;
+}
+
 .test {
 	position: fixed;
 	bottom: 5%;
 	z-index: 3;
-	margin-left: 5%;
+	left: 4%;
 	background: white;
 	opacity: 0.75;
 	border-radius: 15px;
@@ -193,8 +276,7 @@ html, body {
 	animation: fadeOutFromNone 0.3s ease-out;
 }
 
-.test:hover
-{
+.test:hover {
     transform: translateY(-2px);
     display: block;
 	opacity: 1;
